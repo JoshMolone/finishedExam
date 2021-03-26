@@ -27,14 +27,12 @@ const Create = () => {
         e.preventDefault()
         axios.post("http://localhost:8000/api/exam/create", formInfo)
             .then(response => {
-                console.log("SUCCESS: response from post request form submission", response)
-                if(response.data.errors){
-                    console.log("ERROS FOUND!")
-                    setErrors(response.data.errors)
+                if(response.data.results){
+                    console.log("No errors found.................")
+                    navigate("/")
                 }
                 else{
-                    navigate("/")
-                    // setErrors(response.data.errors)
+                    setErrors(response.data.errors)
                 }
             })
             .catch(err => console.log(err))
@@ -46,14 +44,14 @@ const Create = () => {
                     <form onSubmit={submitHandler} className="col-6 mx=auto">
                         <div className="form-group">
                         <label name="name">Name:<input type="text" name="name" onChange={changeHandler}/></label>
-                        <p>{errors.name? errors.name.message: ""}</p>
+                        <p style = {{color:"red"}}>{errors.name? errors.name.message: ""}</p>
                         <label name="type">Type:<input type="text" name="type" onChange={changeHandler}/></label>
-                        <p>{errors.name? errors.type.message: ""}</p>
+                        <p style = {{color:"red"}}>{errors.type? errors.type.message: ""}</p>
                         <label name="description">Description:<input type="text" name="description" onChange={changeHandler}/></label>
-                        <p>{errors.name? errors.description.message: ""}</p>
-                        <label name="skill1">Skill 1:<input type="text" name="skill1" onChange={changeHandler}/></label>
-                        <label name="skill2">Skill 2:<input type="text" name="skill2" onChange={changeHandler}/></label>
-                        <label name="skill3">Skill 3:<input type="text" name="skill3" onChange={changeHandler}/></label>
+                        <p style = {{color:"red"}}>{errors.description? errors.description.message: ""}</p>
+                        <label name="skill1">Skill 1:<input type="text" name="skill1" placeholder="optional" onChange={changeHandler}/></label>
+                        <label name="skill2">Skill 2:<input type="text" name="skill2" placeholder="optional" onChange={changeHandler}/></label>
+                        <label name="skill3">Skill 3:<input type="text" name="skill3" placeholder="optional" onChange={changeHandler}/></label>
                         <input type="submit" value="Create Pet" className="btn btn-success"/>
                         </div>
                     </form>

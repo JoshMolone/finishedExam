@@ -23,10 +23,10 @@ const Home = () => {
                         <div className="card-body">
                             <h5 className="card-title">Pets Name: {pet.name}</h5>
                             <p>Type: {pet.type}</p>
-                            <p>Type: {pet.description}</p>
-                            <p>Type: {pet.skill1}</p>
-                            <p>Type: {pet.skill2}</p>
-                            <p>Type: {pet.skill3}</p>
+                            <p>Description: {pet.description}</p>
+                            <p>Skill 1: {pet.skill1}</p>
+                            <p>Skill 2: {pet.skill2}</p>
+                            <p>Skill 3: {pet.skill3}</p>
                             <button><Link to ={`/pet/${pet._id}`}>Details</Link></button>
                         </div>
                     </div>

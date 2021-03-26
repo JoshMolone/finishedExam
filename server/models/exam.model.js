@@ -4,14 +4,14 @@ const ExamSchema = new mongoose.Schema({
 
     name: {
         type: String,
-        required: [true, "You have to supply this field"],
+        required: [true, "The pet must have a name!"],
             // Backend Validations for max/min length 
         minLength: [3, "This field must be 3 or more characters"],
         maxLength: [25, "This field must be 6 or less characters"]
     },
     type: {
         type: String, 
-        required: [true, "You have to provide a description"],
+        required: [true, "A type is required! (ex. Dog,Cat,Bird etc.."],
         // Backend Validations for max/min length 
         minLength: [3, "This field must be 3 or more characters"],
         maxLength: [25, "This field must be 6 or less characters"]
